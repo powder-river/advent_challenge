@@ -25,11 +25,34 @@ def total_wrapping(presents):
     return sum(new_list)
 
 
+def ribbon(presents):
+    new_list = []
+    for p in presents:
+        sort_sides = sorted([p["l"], p['w'] , p['h']])
+        short_a = sort_sides[0]
+        short_b = sort_sides[1]
+
+        total_a = short_a + short_a + short_b + short_b
+        total_b = p['l']*p['w']*p['h']
+        total = total_a + total_b
+        # print("Total A : {}  Total B: {}".format(total_a,total_b))
+        #2 + 2 + 3 + 3 = 10,    2*3*4 = 24
+        new_list.append(total)
+    return sum(new_list)
+
+
+
 def main(presents):
     presents = clean_presents(presents)
-
     presents = total_wrapping(presents)
 
     return presents
 
-print(main(presents))
+def main_ribbon(presents):
+    presents = clean_presents(presents)
+    presents = ribbon(presents)
+    return presents
+
+print(main_ribbon(presents))
+# potato = [{'l':2,'w':3,'h':4}]
+# print(ribbon(potato))
