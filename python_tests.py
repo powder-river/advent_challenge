@@ -13,11 +13,18 @@ class AdventTest(unittest.TestCase):
     def test_regex_vowels(self):
         a = "ugknbfddgicrmopn"
         b = "danai"
+        c= "abcdde"
         f = "dvszwmarrgswjxmb"
+        f1 = "jchzalrnumimnmhp"
 
         self.assertTrue(vowel(a))
         self.assertTrue(vowel(b))
         self.assertFalse(vowel(f))
+
+        self.assertTrue(multi_letter(a))
+        self.assertTrue(multi_letter(c))
+        self.assertFalse(multi_letter(b))
+        self.assertFalse(multi_letter(f1))
 
     # def test_day2_clean_list(self):
     #     day_2_data = """20x3x11
