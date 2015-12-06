@@ -16,6 +16,7 @@ class AdventTest(unittest.TestCase):
         c= "abcdde"
         f = "dvszwmarrgswjxmb"
         f1 = "jchzalrnumimnmhp"
+        f2 = "haegwjzuvuyypxyu"
 
         self.assertTrue(vowel(a))
         self.assertTrue(vowel(b))
@@ -25,6 +26,9 @@ class AdventTest(unittest.TestCase):
         self.assertTrue(multi_letter(c))
         self.assertFalse(multi_letter(b))
         self.assertFalse(multi_letter(f1))
+
+        self.assertFalse(exception_chars(a))
+        self.assertTrue(exception_chars(f2))
 
     # def test_day2_clean_list(self):
     #     day_2_data = """20x3x11
