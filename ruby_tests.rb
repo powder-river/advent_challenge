@@ -21,16 +21,18 @@ class TestAdvent < MiniTest::Test
 
 
   def test_6_grid
+#
     grid = create_grid
+    # print grid
 
-    assert grid["Point 100,100"]['x']
-    # assert grid["Point 100,100"]['y']
+    assert grid["Point: 100,100"]['x']
+    assert grid["Point: 100,100"]['y']
     # assert grid[0]['x']
     # assert grid[0]['y']
     # assert grid[999]['x']
     # assert grid[999]['y']
-    #
-    # assert_equal 47, grid["Point 100,47"]['y']
+
+    assert_equal 47, grid["Point: 0,47"]['y']
     # refute grid[1000]
   end
 

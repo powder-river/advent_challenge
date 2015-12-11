@@ -26,24 +26,15 @@ end
 def create_grid
     grid = {}
     x = 0
-    y = 0
     while x < 1000
-      while y < 1000
-        grid["Point: #{x},#{y}"] = {"status" => "off", "x" => x, "y" => y }
-        y += 1
+
+      (0..999).each do |n|
+        grid["Point: #{x},#{n}"] = {"status" => "off", "x" => x, "y" => n }
+        # puts "#{x},#{n}"
       end
       x += 1
-
     end
-
     grid
 end
 
-grid = create_grid
-# puts grid
-puts grid["Point: 0,0"]['status']
-
-
-
-# def main(instructions)
-# end
+# puts create_grid
