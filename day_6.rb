@@ -11,7 +11,7 @@ def clean_input(ci)
           action = "on"
         elsif n.match(/off/)
           action = "off"
-        elsif
+        elsif n.match(/toggle/)
           action = "toggle"
         else
           print "ERROR ERROR ERROR ERROR ERROR"
@@ -22,8 +22,28 @@ def clean_input(ci)
     data_list
 end
 
-potato = clean_input(challenge_input)
-# puts challenge_input
-grape = "turn off 341,304 through 638,850"
-grape = grape.scan(/\d+,\d+/)
-puts grape[0]
+
+def create_grid
+    grid = {}
+    x = 0
+    y = 0
+    while x < 1000
+      while y < 1000
+        grid["Point: #{x},#{y}"] = {"status" => "off", "x" => x, "y" => y }
+        y += 1
+      end
+      x += 1
+
+    end
+
+    grid
+end
+
+grid = create_grid
+# puts grid
+puts grid["Point: 0,0"]['status']
+
+
+
+# def main(instructions)
+# end
