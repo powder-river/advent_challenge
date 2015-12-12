@@ -21,30 +21,51 @@ class TestAdvent < MiniTest::Test
 
 
   def test_6_grid
-#
     grid = create_grid
     # print grid
 
     assert grid["Point: 100,100"]['x']
     assert grid["Point: 100,100"]['y']
-    # assert grid[0]['x']
-    # assert grid[0]['y']
-    # assert grid[999]['x']
-    # assert grid[999]['y']
+    assert grid["Point: 999,100"]['y']
+    assert grid["Point: 53,10"]['y']
+    assert grid["Point: 750,452"]['y']
 
     assert_equal 47, grid["Point: 0,47"]['y']
-    # refute grid[1000]
+    assert_equal "off", grid["Point: 0,47"]['status']
   end
 
-  # def test_6_operation
-  #   grid = create_grid
-  #   grid = grid_operation(grid,instructions)
-  #
-  #
-  #   assert_equal grid[0], "on"
-  #   assert_equal grid[1], "on"
-  #   assert_equal grid[2], "on"
-  # end
+
+  def test_6_status
+    a = "on"
+    b = "off"
+    c = "toggle"
+
+    
+  end
+
+  def test_6_operation
+    instructions = [
+      {"action" => "off", "start" => "0,0","end" => "0,1"},
+      {"action" => "on", "start" => "1,1","end" => "1,2"},
+      {"action" => "toggle", "start" => "2,2","end" => "2,3"}
+    ]
+
+    grid = {
+      "a" => {"status" => "off", "x" => 0, "y" => 0 },
+      "b" => {"status" => "off", "x" => 1, "y" => 1 },
+      "c" => {"status" => "off", "x" => 2, "y" => 2 },
+      "d" => {"status" => "off", "x" => 2, "y" => 3 },
+      "e" => {"status" => "off", "x" => 1, "y" => 2 }
+    }
+    grid = grid_operation(grid,instructions)
+
+
+    assert_equal "off", grid["a"]['status']
+    assert_equal "on", grid["b"]['status']
+    assert_equal "off", grid["c"]['status']
+    assert_equal "off", grid["d"]['status']
+    assert_equal "on", grid["e"]['status']
+  end
 
 
 
